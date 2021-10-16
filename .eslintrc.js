@@ -12,7 +12,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  ignorePatterns: ["reportWebVitals.ts"],
+  ignorePatterns: ["reportWebVitals.ts", "craco.config.js"],
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "react/react-in-jsx-scope": "off",
