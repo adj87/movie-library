@@ -1,4 +1,4 @@
-import { Link, Route } from "wouter";
+import { Link, Route } from 'wouter';
 
 const App = () => (
   <>
@@ -12,10 +12,10 @@ const App = () => (
       <a>Companies</a>
     </Link>
 
-    <Route path={"/"}>Home</Route>
-    <Route path={"/movies"}>Movies</Route>
-    <Route path={"/actors"}>actors</Route>
-    <Route path={"/companies"}>Movies</Route>
+    <Route path="/">Home</Route>
+    <Route path="/movies">Movies</Route>
+    <Route path="/actors">actors</Route>
+    <Route path="/companies">Movies</Route>
   </>
 );
 
