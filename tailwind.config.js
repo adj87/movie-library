@@ -7,13 +7,13 @@ module.exports = {
     colors: {
       grey: colors.coolGray,
       primary: {
-        DEFAULT: "#002259",
+        DEFAULT: "#000133",
         light: "#44295F",
-        secondary: {
-          DEFAULT: "#19BF6F",
-        },
-        white: "white",
       },
+      secondary: {
+        DEFAULT: "#19BF6F",
+      },
+      white: "white",
       extend: {
         spacing: {
           128: "32rem",

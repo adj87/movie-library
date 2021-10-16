@@ -4,5 +4,6 @@
 @tailwind utilities;
 
 body{
+    @apply bg-primary;
     font-family: 'Poppins','Courier New', Courier, monospace;
 }
