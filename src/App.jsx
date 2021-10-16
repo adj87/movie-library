@@ -1,6 +1,7 @@
-import { Link, Route } from 'wouter';
+import React from "react";
+import { Link, Route } from "wouter";
 
-const App = () => (
+const App : React.FC<> = () => (
   <>
     <Link href="/movies/">
       <a>Movies</a>

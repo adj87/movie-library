@@ -3,20 +3,25 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
-  parser: '@typescript-eslint/parser',
+  extends: ["plugin:react/recommended", "airbnb"],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module",
   },
-  ignorePatterns: ['reportWebVitals.ts'],
-  plugins: ['react', '@typescript-eslint'],
+  ignorePatterns: ["reportWebVitals.ts"],
+  plugins: ["react", "@typescript-eslint"],
   rules: {
-    'react/react-in-jsx-scope': 'off',
-    'jsx-a11y/anchor-is-valid': 'off',
-    'no-use-before-define': 'off',
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/explicit-module-boundary-types": 2,
+    quotes: [
+      2,
+      "double",
+    ],
   },
 };
