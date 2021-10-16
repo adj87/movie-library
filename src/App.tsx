@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link, Route } from "wouter";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <>
+    <Link href="/movies/">
+      <a>Movies</a>
+    </Link>
+    <Link href="/actors/">
+      <a>Actors</a>
+    </Link>
+    <Link href="/companies/">
+      <a>Companies</a>
+    </Link>
+
+    <Route path={"/"}>Home</Route>
+    <Route path={"/movies"}>Movies</Route>
+    <Route path={"/actors"}>actors</Route>
+    <Route path={"/companies"}>Movies</Route>
+  </>
+);
 
 export default App;
