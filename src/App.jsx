@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, Route } from "wouter";
+import { Provider } from "react-redux";
+import { store } from "./store.ts";
 
 const App : React.FC<> = () => (
-  <>
+  <Provider store={store}>
     <nav className="mt-6">
       <Link href="/home/">
         <a>Home</a>
@@ -23,7 +25,7 @@ const App : React.FC<> = () => (
     <Route path="/actors">actors</Route>
     <Route path="/companies">Movies</Route>
 
-  </>
+  </Provider>
 );
 
 export default App;
