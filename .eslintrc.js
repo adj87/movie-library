@@ -21,6 +21,7 @@ module.exports = {
   ],
   ignorePatterns: ["reportWebVitals.ts", "craco.config.js", "tailwind.config.js"],
   rules: {
+    "no-unused-vars": 1,
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "no-use-before-define": "off",
