@@ -5,7 +5,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ text }) => (
-  <div className="flex justify-items-center items-center">
+  <div className="flex justify-items-center items-center mb-8">
     <span className="flex-none mr-8">M</span>
     <p className="font-bold flex-1 xs:text-center text-left text-3xl xs:text-5xl">{text}</p>
   </div>
