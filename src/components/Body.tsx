@@ -1,7 +1,7 @@
 import React from "react";
 
 interface BodyProps {
-    children: React.FC
+    children: React.ReactNode
 }
 
 const Body: React.FC<BodyProps> = ({ children }) => (

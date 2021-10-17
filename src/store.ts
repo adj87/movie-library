@@ -6,15 +6,15 @@ const moviesSlice = createSlice({
   reducers: {
     set: (state:any[], action: PayloadAction<any>) => {
       state += action.payload; // eslint-disable-line
-    },
-  },
+    }
+  }
 });
 
 export const store = configureStore({
   reducer: {
-    movies: moviesSlice.reducer,
+    movies: moviesSlice.reducer
 
-  },
+  }
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

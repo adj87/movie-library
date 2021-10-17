@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 
 const Movies: React.FC = () => (
   <>
-    <Header text="Movies" />
+    <Header text="movies"/>
     <Body>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
         <div className="bg-secondary">Hallooo</div>

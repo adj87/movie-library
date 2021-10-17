@@ -1,10 +1,10 @@
 import React from "react";
 import { Route } from "wouter";
 import { Provider } from "react-redux";
-import { store } from "./store.ts";
+import { store } from "./store";
 import Movies from "./pages/Movies";
 
-const App : React.FC<> = () => (
+const App : React.FC = () => (
   <Provider store={store}>
     {/*     <nav className="mt-6">
       <Link href="/home/">
