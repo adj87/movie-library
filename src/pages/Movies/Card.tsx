@@ -8,21 +8,23 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ movie }) => {
   return (
     <div>
-      <p className="mb-2 ellipsis-effect">{movie.title}</p>
+      <p className="mb-6 ellipsis-effect font-semibold text-xl">
+        {movie.title}
+      </p>
       <div
-        className="h-36 bg-secondary transform hover:scale-110 transition-all"
+        className="h-40 bg-secondary transform hover:scale-110 transition-all rounded-lg cursor-pointer"
         style={{
           backgroundImage: `url(${movie.poster})`,
           backgroundPosition: "center"
         }}
       ></div>
-      <div className="mt-2 flex flex-row-reverse">
+      <div className="mt-1 flex flex-row-reverse flex-wrap ">
         {movie.genre.map((el: string) => (
           <span
             key={`genre-tag-${el}`}
-            className="px-4 bg-primary-light rounded-lg ml-2"
+            className="px-4 bg-primary-light rounded-lg ml-2 cursor-default text-sm mt-1"
           >
-            {el}
+            {`#${el}`}
           </span>
         ))}
       </div>
