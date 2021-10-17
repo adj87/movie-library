@@ -3,11 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-   
-    @apply m-2;
-    @apply md:m-7;
-    @apply bg-primary;
-    font-family: 'Poppins','Courier New', Courier, monospace;
-    @apply text-white;
+body {
+  @apply m-2;
+  @apply md:m-7;
+  @apply bg-primary;
+  font-family: "Poppins", "Courier New", Courier, monospace;
+  @apply text-white;
+}
+
+.ellipsis-effect {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
