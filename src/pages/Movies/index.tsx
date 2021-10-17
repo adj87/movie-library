@@ -3,12 +3,13 @@ import Body from "../../components/Body";
 import Header from "../../components/Header";
 import { set as setMovies } from "./redux";
 import { RootState, useAppDispatch, useAppSelector } from "../../store";
+import { Movie } from "../../interfaces/movies";
 
 const Movies: React.FC = () => {
   const dispatch = useAppDispatch();
   const movies = useAppSelector((state:RootState) => state.movies.list);
   useEffect(() => {
-    fetch("http://localhost:3001/movies").then((res) => res.json()).then((movies) => {
+    fetch("http://localhost:3001/movies").then((res) => res.json()).then((movies:Movie[]) => {
       dispatch(setMovies(movies));
     });
   }, []);
