@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ movie }) => {
         {movie.genre.map((el: string) => (
           <span
             key={`genre-tag-${el}`}
-            className="px-4 bg-primary-light rounded-lg ml-2 cursor-default text-sm mt-1"
+            className="px-4 bg-primary-light rounded-lg ml-2 cursor-default text-xs mt-1"
           >
             {`#${el}`}
           </span>
