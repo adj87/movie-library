@@ -12,8 +12,7 @@ body {
 
   &.aside-menu-open {
     .aside-menu {
-      @apply w-60;
-      @apply transition-all;
+      @apply w-72;
     }
     .layer {
       @apply h-full;
