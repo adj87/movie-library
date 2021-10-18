@@ -3,8 +3,9 @@ import { Route } from "wouter";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import Movies from "./pages/Movies";
+import AsideMenu from "./components/AsideMenu";
 
-const App : React.FC = () => (
+const App: React.FC = () => (
   <Provider store={store}>
     {/*     <nav className="mt-6">
       <Link href="/home/">
@@ -20,12 +21,11 @@ const App : React.FC = () => (
         <a>Companies</a>
       </Link>
     </nav> */}
-
+    <AsideMenu />
     <Route path="/">Home</Route>
     <Route path="/movies" component={() => <Movies />} />
     <Route path="/actors">actors</Route>
     <Route path="/companies">Movies</Route>
-
   </Provider>
 );
 
