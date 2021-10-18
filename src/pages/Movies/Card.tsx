@@ -8,11 +8,9 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ movie }) => {
   return (
     <div>
-      <p className="mb-6 ellipsis-effect font-semibold text-xl">
-        {movie.title}
-      </p>
+      <p className="mb-6 ellipsis-effect font-semibold">{movie.title}</p>
       <div
-        className="h-40 bg-secondary transform hover:scale-110 transition-all rounded-lg cursor-pointer"
+        className="h-40 bg-secondary transform hover:scale-110 transition-all rounded-lg cursor-pointer border border-primary-light"
         style={{
           backgroundImage: `url(${movie.poster})`,
           backgroundPosition: "center"

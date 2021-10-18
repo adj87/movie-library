@@ -29,6 +29,9 @@ const Movies: React.FC = () => {
           ))}
         </div>
       </Body>
+      <div className="fixed bottom-4 right-4 bg-secondary h-20 w-20 rounded-full text-center text-primary text-6xl font-bold cursor-pointer">
+        +
+      </div>
     </>
   );
 };
