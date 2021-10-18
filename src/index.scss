@@ -9,6 +9,18 @@ body {
   @apply bg-primary;
   font-family: "Poppins", "Courier New", Courier, monospace;
   @apply text-white;
+
+  &.aside-menu-open {
+    overflow-y: hidden;
+    .aside-menu {
+      @apply w-72;
+      @apply py-6;
+      @apply px-4;
+    }
+    .layer {
+      @apply h-full;
+    }
+  }
 }
 
 .ellipsis-effect {
