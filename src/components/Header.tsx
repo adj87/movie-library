@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 interface HeaderProps {
-  text: string;
+  text?: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ text }) => (
@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({ text }) => (
       size="2x"
       onClick={() => document.body.classList.add("aside-menu-open")}
     />
-    <p className="font-bold flex-1 xs:text-center text-left text-3xl xs:text-5xl">
+    <p className="font-bold flex-1 xs:text-center text-left text-3xl xs:text-5xl ellipsis-effect">
       {text}
     </p>
   </div>
