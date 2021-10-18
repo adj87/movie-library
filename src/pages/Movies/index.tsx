@@ -3,7 +3,7 @@ import Body from "../../components/Body";
 import Header from "../../components/Header";
 import { set as setMovies } from "./redux";
 import { RootState, useAppDispatch, useAppSelector } from "../../store";
-import { Movie } from "../../interfaces/movies";
+import { Movie } from "../../interfaces/movie";
 import Card from "./Card";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Movie } from "../../interfaces/movies";
+import { Movie } from "../../interfaces/movie";
 
 const moviesSlice = createSlice({
   name: "movies",
-  initialState: { list: [] } as {list: Movie[]},
+  initialState: { list: [] } as { list: Movie[] },
   reducers: {
     set: (state, action: PayloadAction<Movie[]>) => {
       // state = action.payload; // eslint-disable-line

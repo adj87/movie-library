@@ -9,7 +9,8 @@ export interface Movie {
   actors: number[];
 }
 
-export interface MovieWithCompanyAndActorsAsStrings extends Movie {
+export interface MovieWithCompanyAndActorsAsStrings
+  extends Omit<Movie, "actors"> {
   actors: string[];
   company: string;
 }

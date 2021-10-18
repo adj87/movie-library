@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Movie } from "../../interfaces/movies";
+import { Movie } from "../../interfaces/movie";
 
 const movieDetailSlice = createSlice({
   name: "movieDetail",

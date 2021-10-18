@@ -3,7 +3,7 @@ import Body from "../../components/Body";
 import Header from "../../components/Header";
 import { set as setMovieDetail } from "./redux";
 import { RootState, useAppDispatch, useAppSelector } from "../../store";
-import { Movie } from "../../interfaces/movies";
+import { Movie } from "../../interfaces/movie";
 import { useRoute } from "wouter";
 
 const MovieDetail: React.FC<any> = (props) => {
