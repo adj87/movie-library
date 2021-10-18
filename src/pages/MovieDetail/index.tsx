@@ -10,8 +10,7 @@ import {
 } from "../../interfaces/movie";
 import { Actor } from "../../interfaces/actor";
 import { Company } from "../../interfaces/company";
-
-const API_HOST = "http://localhost:3001";
+import { API_HOST } from "../../constants";
 
 type ApiResponse = [Movie, Company[], Actor[]];
 
@@ -64,7 +63,10 @@ const MovieDetail: React.FC<any> = () => {
             <span className="text-grey-400">Duracción</span>
             <span className="text-2xl">{`${movie?.duration} m`}</span>
           </div>
-          <div className="bg-primary-light rounded-lg text-center cursor-pointer">
+          <div
+            className="bg-primary-light rounded-lg text-center cursor-pointer"
+            onClick={() => alert("Just faking 😄")}
+          >
             Ver en <span className="text-red text-2xl font-bold">NETFLIX</span>
           </div>
         </div>

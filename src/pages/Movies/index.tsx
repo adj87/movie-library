@@ -8,13 +8,14 @@ import Card from "./Card";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLocation } from "wouter";
+import { API_HOST } from "../../constants";
 
 const Movies: React.FC = () => {
   const dispatch = useAppDispatch();
   const movies = useAppSelector((state: RootState) => state.movies.list);
   const [, setLocation] = useLocation();
   useEffect(() => {
-    fetch("http://localhost:3001/movies")
+    fetch(`${API_HOST}/movies`)
       .then((res) => res.json())
       .then((movies: Movie[]) => {
         dispatch(setMovies(movies));
