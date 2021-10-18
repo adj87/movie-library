@@ -5,6 +5,8 @@ import { set as setMovies } from "./redux";
 import { RootState, useAppDispatch, useAppSelector } from "../../store";
 import { Movie } from "../../interfaces/movies";
 import Card from "./Card";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Movies: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -29,9 +31,11 @@ const Movies: React.FC = () => {
           ))}
         </div>
       </Body>
-      <div className="fixed bottom-4 right-4 bg-secondary h-20 w-20 rounded-full text-center text-primary text-6xl font-bold cursor-pointer">
-        +
-      </div>
+      <FontAwesomeIcon
+        icon={faPlusCircle}
+        className="cursor-pointer fixed bottom-6 right-6 text-secondary transition-all hover:text-white hover:scale-110"
+        size="6x"
+      />
     </>
   );
 };
