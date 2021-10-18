@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useRoute } from "wouter";
 import Body from "../../components/Body";
 import Header from "../../components/Header";
-import { set as setMovieDetail } from "./redux";
+import { setLoading, setMovie } from "./redux";
 import { RootState, useAppDispatch, useAppSelector } from "../../store";
 import {
   Movie,
@@ -17,9 +17,10 @@ type ApiResponse = [Movie, Company[], Actor[]];
 const MovieDetail: React.FC<any> = () => {
   const dispatch = useAppDispatch();
   const [, params] = useRoute("/movies/:id");
-  const movie = useAppSelector((state: RootState) => state.movieDetail);
+  const movie = useAppSelector((state: RootState) => state.movieDetail.movie);
   useEffect(() => {
     const { id } = params || {};
+    dispatch(setLoading(true));
     Promise.all([
       fetch(`${API_HOST}/movies/${id}`),
       fetch(`${API_HOST}/companies?movies_like=${id}`),
@@ -39,7 +40,8 @@ const MovieDetail: React.FC<any> = () => {
           actors: actorsName,
           company
         };
-        dispatch(setMovieDetail(movieWithCompanyAndActors));
+        dispatch(setMovie(movieWithCompanyAndActors));
+        dispatch(setLoading(false));
       });
   }, []);
   return (
@@ -61,7 +63,7 @@ const MovieDetail: React.FC<any> = () => {
           </div>
           <div className="text-center font-bold flex flex-col">
             <span className="text-grey-400">Duracción</span>
-            <span className="text-2xl">{`${movie?.duration} m`}</span>
+            <span className="text-2xl">{`${movie?.duration ?? ""} m`}</span>
           </div>
           <div
             className="bg-primary-light rounded-lg text-center cursor-pointer"
