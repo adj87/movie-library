@@ -1,6 +1,7 @@
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "wouter";
 
 const AsideMenu: React.FC = () => {
   return (
@@ -16,9 +17,27 @@ const AsideMenu: React.FC = () => {
             onClick={() => document.body.classList.remove("aside-menu-open")}
           />
         </div>
+        {/* Bodylinks */}
+        <div className="flex flex-col mt-12">
+          {links.map((el, i: number) => (
+            <Link
+              key={`link ${i}`}
+              href={el.href}
+              onClick={() => document.body.classList.remove("aside-menu-open")}
+            >
+              <a href="">{el.title}</a>
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );
 };
+
+const links = [
+  { href: "/movies", title: "Movies" },
+  { href: "/actors", title: "Actors" },
+  { href: "/companies", title: "Companies" }
+];
 
 export default AsideMenu;
