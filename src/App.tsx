@@ -5,10 +5,12 @@ import { store } from "./store";
 import Movies from "./pages/Movies";
 import MovieDetail from "./pages/MovieDetail";
 import AsideMenu from "./components/AsideMenu";
+import Loading from "./components/Loading";
 
 const App: React.FC = () => (
   <Provider store={store}>
     <AsideMenu />
+    <Loading />
     <Route path="/">Home</Route>
     <Route path="/movies" component={() => <Movies />} />
     <Route path="/movies/:id" component={() => <MovieDetail />} />
