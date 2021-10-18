@@ -18,6 +18,7 @@ module.exports = {
       secondary: {
         DEFAULT: "#19BF6F"
       },
+      red: "#E50914",
       white: "white",
       extend: {
         spacing: {
