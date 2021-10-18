@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, Route } from "wouter";
+import { Route } from "wouter";
 import { Provider } from "react-redux";
-import { store } from "./store.ts";
+import { store } from "./store";
+import Movies from "./pages/Movies";
 
-const App : React.FC<> = () => (
+const App : React.FC = () => (
   <Provider store={store}>
-    <nav className="mt-6">
+    {/*     <nav className="mt-6">
       <Link href="/home/">
         <a>Home</a>
       </Link>
@@ -18,10 +19,10 @@ const App : React.FC<> = () => (
       <Link href="/companies/">
         <a>Companies</a>
       </Link>
-    </nav>
+    </nav> */}
 
     <Route path="/">Home</Route>
-    <Route path="/movies">Movies</Route>
+    <Route path="/movies" component={() => <Movies />} />
     <Route path="/actors">actors</Route>
     <Route path="/companies">Movies</Route>
 
