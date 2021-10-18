@@ -7,10 +7,12 @@ import { Movie } from "../../interfaces/movies";
 import Card from "./Card";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLocation } from "wouter";
 
 const Movies: React.FC = () => {
   const dispatch = useAppDispatch();
   const movies = useAppSelector((state: RootState) => state.movies.list);
+  const [, setLocation] = useLocation();
   useEffect(() => {
     fetch("http://localhost:3001/movies")
       .then((res) => res.json())
@@ -27,7 +29,11 @@ const Movies: React.FC = () => {
           style={{ rowGap: "5rem" }}
         >
           {movies.map((movie: Movie) => (
-            <Card key={movie.id} movie={movie} />
+            <Card
+              key={movie.id}
+              movie={movie}
+              onClick={() => setLocation(`/movies/${movie.id}`)}
+            />
           ))}
         </div>
       </Body>
