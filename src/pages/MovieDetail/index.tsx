@@ -25,7 +25,8 @@ const MovieDetail: React.FC<any> = (props) => {
           className="h-60 bg-secondary rounded-lg border border-primary-light"
           style={{
             backgroundImage: `url(${movie?.poster})`,
-            backgroundPosition: "center"
+            backgroundPosition: "center",
+            backgroundSize: "cover"
           }}
         />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-4">
@@ -56,7 +57,7 @@ const TitleAndList: React.FC<any> = ({ title, list }) => {
     <div className="text-left font-bold flex flex-col">
       <span className="text-grey-400 border-grey-500 border-b-2">{title}</span>
       <div className="flex flex-col">
-        {list.map((el: string | number) => (
+        {list?.map((el: string | number) => (
           <p key={`${title}-${el}`} className="text-2xl">
             {el}
           </p>
