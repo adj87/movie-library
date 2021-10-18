@@ -33,12 +33,21 @@ const AsideMenu: React.FC = () => {
                   document.body.classList.remove("aside-menu-open")
                 }
               >
-                <a className={`py-2 text-grey-600 text-xl ${linkActive}`}>
+                <a
+                  className={`py-2 text-grey-600 text-xl ${linkActive} hover:text-white transition-all duration-500`}
+                >
                   {el.title}
                 </a>
               </Link>
             );
           })}
+        </div>
+        {/* Footer */}
+        <div className="bottom-0 absolute pb-8 font-extralight">
+          <p>© {new Date().getFullYear()} All rights reserved</p>
+          <p>
+            by <span className="text-grey-400">mr_jaurewi</span>
+          </p>
         </div>
       </div>
     </>
