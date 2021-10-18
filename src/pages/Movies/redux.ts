@@ -3,15 +3,22 @@ import { Movie } from "../../interfaces/movie";
 
 const moviesSlice = createSlice({
   name: "movies",
-  initialState: { list: [] } as { list: Movie[] },
+  initialState: { list: [], loading: false } as {
+    list: Movie[];
+    loading: boolean;
+  },
   reducers: {
-    set: (state, action: PayloadAction<Movie[]>) => {
+    setMovies: (state, action: PayloadAction<Movie[]>) => {
       // state = action.payload; // eslint-disable-line
       state.list = action.payload;
+    },
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      // prettier-ignore
+      state.loading = action.payload; // eslint-disable-line
     }
   }
 });
 
-export const { set } = moviesSlice.actions;
+export const { setMovies, setLoading } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

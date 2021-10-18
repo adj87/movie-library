@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Body from "../../components/Body";
 import Header from "../../components/Header";
-import { set as setMovies } from "./redux";
+import { setMovies, setLoading } from "./redux";
 import { RootState, useAppDispatch, useAppSelector } from "../../store";
 import { Movie } from "../../interfaces/movie";
 import Card from "./Card";
@@ -15,10 +15,12 @@ const Movies: React.FC = () => {
   const movies = useAppSelector((state: RootState) => state.movies.list);
   const [, setLocation] = useLocation();
   useEffect(() => {
+    dispatch(setLoading(true));
     fetch(`${API_HOST}/movies`)
       .then((res) => res.json())
       .then((movies: Movie[]) => {
         dispatch(setMovies(movies));
+        dispatch(setLoading(false));
       });
   }, []);
   return (
