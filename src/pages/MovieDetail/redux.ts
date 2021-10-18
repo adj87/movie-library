@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Movie } from "../../interfaces/movie";
+import { MovieWithCompanyAndActorsAsStrings } from "../../interfaces/movie";
 
 const movieDetailSlice = createSlice({
   name: "movieDetail",
-  initialState: null as null | Movie,
+  initialState: null as null | MovieWithCompanyAndActorsAsStrings,
   reducers: {
-    set: (state, action: PayloadAction<Movie>) => action.payload
+    set: (state, action: PayloadAction<MovieWithCompanyAndActorsAsStrings>) =>
+      action.payload
   }
 });
 

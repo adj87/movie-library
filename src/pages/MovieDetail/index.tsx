@@ -1,20 +1,46 @@
 import React, { useEffect } from "react";
+import { useRoute } from "wouter";
 import Body from "../../components/Body";
 import Header from "../../components/Header";
 import { set as setMovieDetail } from "./redux";
 import { RootState, useAppDispatch, useAppSelector } from "../../store";
-import { Movie } from "../../interfaces/movie";
-import { useRoute } from "wouter";
+import {
+  Movie,
+  MovieWithCompanyAndActorsAsStrings
+} from "../../interfaces/movie";
+import { Actor } from "../../interfaces/actor";
+import { Company } from "../../interfaces/company";
 
-const MovieDetail: React.FC<any> = (props) => {
+const API_HOST = "http://localhost:3001";
+
+type ApiResponse = [Movie, Company[], Actor[]];
+
+const MovieDetail: React.FC<any> = () => {
   const dispatch = useAppDispatch();
   const [, params] = useRoute("/movies/:id");
   const movie = useAppSelector((state: RootState) => state.movieDetail);
   useEffect(() => {
-    fetch(`http://localhost:3001/movies/${params?.id}`)
-      .then((res) => res.json())
-      .then((movie: Movie) => {
-        dispatch(setMovieDetail(movie));
+    const { id } = params || {};
+    Promise.all([
+      fetch(`${API_HOST}/movies/${id}`),
+      fetch(`${API_HOST}/companies?movies_like=${id}`),
+      fetch(`${API_HOST}/actors?movies_like=${id}`)
+    ])
+      .then((responses) =>
+        Promise.all(responses.map((res: Response) => res.json()))
+      )
+      .then((res) => {
+        const [movie, companies, actors] = res as ApiResponse;
+        const company = companies[0].name;
+        const actorsName = actors.map(
+          (a: Actor) => `${a.first_name} ${a.last_name}`
+        );
+        const movieWithCompanyAndActors: MovieWithCompanyAndActorsAsStrings = {
+          ...movie,
+          actors: actorsName,
+          company
+        };
+        dispatch(setMovieDetail(movieWithCompanyAndActors));
       });
   }, []);
   return (
@@ -44,7 +70,7 @@ const MovieDetail: React.FC<any> = (props) => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-16">
           <TitleAndList list={movie?.actors} title="Actores" />
-          <TitleAndList list={movie?.actors} title="Company" />
+          <TitleAndList list={[movie?.company]} title="Company" />
           <TitleAndList list={movie?.genre} title="Géneros" />
         </div>
       </Body>
@@ -55,10 +81,12 @@ const MovieDetail: React.FC<any> = (props) => {
 const TitleAndList: React.FC<any> = ({ title, list }) => {
   return (
     <div className="text-left font-bold flex flex-col">
-      <span className="text-grey-400 border-grey-500 border-b-2">{title}</span>
-      <div className="flex flex-col">
+      <span className="text-grey-400 border-grey-500 border-b-2 mb-2">
+        {title}
+      </span>
+      <div className="flex flex-col ">
         {list?.map((el: string | number) => (
-          <p key={`${title}-${el}`} className="text-2xl">
+          <p key={`${title}-${el}`} className="text-xl">
             {el}
           </p>
         ))}
