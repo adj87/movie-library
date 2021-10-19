@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, RouteChildrenProps } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import Movies from "./pages/Movies";
