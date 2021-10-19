@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import Select from "react-select";
 
 import Body from "../../components/Body";
 import Header from "../../components/Header";
@@ -22,7 +23,7 @@ const MovieCreate: React.FC<any> = () => {
   const updateForm = useCallback((name, value) => {
     setFormState((oldState) => ({ ...oldState, [name]: value }));
   }, []);
-  console.log(formState);
+
   return (
     <>
       <Header text={"Crear película"} />
@@ -40,6 +41,10 @@ const MovieCreate: React.FC<any> = () => {
             label={"Poster"}
             onChange={updateForm}
           />
+          <div>
+            <label className="text-grey-200 mb-4">{"hallo"}</label>
+            <Select />
+          </div>
           {/*           <Input
             value={formState.genre}
             name={"genre"}
