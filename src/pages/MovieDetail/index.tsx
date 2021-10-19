@@ -7,9 +7,11 @@ import Body from "../../components/Body";
 import Header from "../../components/Header";
 import { RootState, useAppDispatch, useAppSelector } from "../../store";
 import { fetchAll } from "./redux/operations";
+import { useTranslation } from "react-i18next";
 
 const MovieDetail: React.FC<any> = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const movie = useAppSelector((state: RootState) => state.movieDetail.movie);
   useEffect(() => {
@@ -29,24 +31,25 @@ const MovieDetail: React.FC<any> = () => {
         />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-4">
           <div className="text-center font-bold flex flex-col">
-            <span className="text-grey-400">Puntuacion</span>
+            <span className="text-grey-400">{t("movie.imdbRating")}</span>
             <span className="text-2xl">{movie?.imdbRating}</span>
           </div>
           <div className="text-center font-bold flex flex-col">
-            <span className="text-grey-400">Duracción</span>
+            <span className="text-grey-400">{t("movie.duration")}</span>
             <span className="text-2xl">{`${movie?.duration ?? ""} m`}</span>
           </div>
           <div
             className="bg-primary-light rounded-lg text-center cursor-pointer"
             onClick={() => alert("Just faking 😄")}
           >
-            Ver en <span className="text-red text-2xl font-bold">NETFLIX</span>
+            {t("watch-in")}
+            <span className="text-red text-2xl font-bold"> NETFLIX</span>
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-16">
-          <TitleAndList list={movie?.actors} title="Actores" />
-          <TitleAndList list={[movie?.company]} title="Company" />
-          <TitleAndList list={movie?.genre} title="Géneros" />
+          <TitleAndList list={movie?.actors} title={t("movie.actors")} />
+          <TitleAndList list={[movie?.company]} title={t("movie.company")} />
+          <TitleAndList list={movie?.genre} title={t("movie.genre")} />
         </div>
         <div className="fixed bottom-4 right-4">
           <FontAwesomeIcon
