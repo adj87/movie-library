@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useRoute } from "wouter";
+import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
@@ -10,10 +10,9 @@ import { fetchAll } from "./redux/operations";
 
 const MovieDetail: React.FC<any> = () => {
   const dispatch = useAppDispatch();
-  const [, params] = useRoute("/movies/:id");
+  const { id } = useParams<{ id: string }>();
   const movie = useAppSelector((state: RootState) => state.movieDetail.movie);
   useEffect(() => {
-    const { id } = params || {};
     fetchAll(dispatch, id);
   }, []);
   return (

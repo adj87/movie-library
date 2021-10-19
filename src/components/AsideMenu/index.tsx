@@ -1,10 +1,10 @@
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation } from "react-router-dom";
 
 const AsideMenu: React.FC = () => {
-  const [pathname] = useLocation();
+  const location = useLocation();
   return (
     <>
       <div className="w-full h-0 fixed top-0 left-0 bg-secondary z-20 bg-opacity-90 layer transition-all duration-500" />
@@ -21,14 +21,13 @@ const AsideMenu: React.FC = () => {
         {/* Bodylinks */}
         <div className="flex flex-col mt-20">
           {links.map((el, i: number) => {
-            const linkActive = pathname.includes(el.href)
+            const linkActive = location.pathname.includes(el.href)
               ? "text-secondary  font-bold"
               : "";
-            console.log(pathname, el.href);
             return (
               <Link
                 key={`link ${i}`}
-                href={el.href}
+                to={el.href}
                 onClick={() =>
                   document.body.classList.remove("aside-menu-open")
                 }

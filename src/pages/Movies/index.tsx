@@ -7,13 +7,13 @@ import { Movie } from "../../interfaces/movie";
 import Card from "./Card";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useLocation } from "wouter";
+import { useHistory } from "react-router-dom";
 import { API_HOST } from "../../constants";
 
 const Movies: React.FC = () => {
   const dispatch = useAppDispatch();
   const movies = useAppSelector((state: RootState) => state.movies.list);
-  const [, setLocation] = useLocation();
+  const { push } = useHistory();
   useEffect(() => {
     dispatch(setLoading(true));
     fetch(`${API_HOST}/movies`)
@@ -35,7 +35,7 @@ const Movies: React.FC = () => {
             <Card
               key={movie.id}
               movie={movie}
-              onClick={() => setLocation(`/movies/${movie.id}`)}
+              onClick={() => push(`/movies/${movie.id}`)}
             />
           ))}
         </div>
@@ -44,7 +44,7 @@ const Movies: React.FC = () => {
         icon={faPlusCircle}
         className="cursor-pointer fixed bottom-6 right-6 text-secondary transition-all hover:text-white hover:scale-110"
         size="6x"
-        onClick={() => setLocation("/movies/new")}
+        onClick={() => push("/movies/new")}
       />
     </>
   );
