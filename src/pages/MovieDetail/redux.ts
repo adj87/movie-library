@@ -14,11 +14,9 @@ const movieDetailSlice = createSlice({
       state,
       action: PayloadAction<MovieWithCompanyAndActorsAsStrings>
     ) => {
-      // prettier-ignore
       state.movie = action.payload; // eslint-disable-line
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
-      // prettier-ignore
       state.loading = action.payload; // eslint-disable-line
     }
   }
