@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ text }) => {
         size="2x"
         onClick={
           isBackButton
-            ? () => history.push("/movies")
+            ? history.goBack
             : () => document.body.classList.add("aside-menu-open")
         }
       />
