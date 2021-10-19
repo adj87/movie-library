@@ -8,6 +8,8 @@ import MovieCreate from "./pages/MovieCreate";
 import AsideMenu from "./components/AsideMenu";
 import Loading from "./components/Loading";
 
+import "./i18n";
+
 const App: React.FC = () => (
   <Provider store={store}>
     <Loading />

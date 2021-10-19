@@ -1,0 +1,9 @@
+{
+  "screens": {
+    "movies": "Movies",
+    "actors": "Actors",
+    "companies": "Companies"
+  },
+  "all-rights-reserved": "All rights reserved ",
+  "by": "By"
+}
