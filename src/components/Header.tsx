@@ -42,7 +42,7 @@ const LanguageButton = ({ lang, i18n }: { lang: string; i18n: i18n }) => {
     i18n.language === lang ? "text-secondary font-bold text-xl" : "";
   return (
     <span
-      className={`mr-2 cursor-pointer ${isActive}`}
+      className={`mr-4 cursor-pointer ${isActive}`}
       onClick={() => i18n.changeLanguage(lang)}
     >
       {lang.toUpperCase()}
