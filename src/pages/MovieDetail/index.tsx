@@ -11,6 +11,8 @@ import {
 import { Actor } from "../../interfaces/actor";
 import { Company } from "../../interfaces/company";
 import { API_HOST } from "../../constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 type ApiResponse = [Movie, Company[], Actor[]];
 
@@ -76,6 +78,20 @@ const MovieDetail: React.FC<any> = () => {
           <TitleAndList list={movie?.actors} title="Actores" />
           <TitleAndList list={[movie?.company]} title="Company" />
           <TitleAndList list={movie?.genre} title="Géneros" />
+        </div>
+        <div className="fixed bottom-4 right-4">
+          <FontAwesomeIcon
+            icon={faTrash}
+            size="3x"
+            className="text-red cursor-pointer"
+            onClick={() => alert("TO DO")}
+          />
+          <FontAwesomeIcon
+            icon={faEdit}
+            size="3x"
+            className={"ml-6 text-secondary cursor-pointer"}
+            onClick={() => alert("TO DO")}
+          />
         </div>
       </Body>
     </>
