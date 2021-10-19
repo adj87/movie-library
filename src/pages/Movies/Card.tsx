@@ -1,11 +1,12 @@
 import React from "react";
-import { Movie } from "../../interfaces/movies";
+import { Movie } from "../../interfaces/movie";
 
 interface CardProps {
   movie: Movie;
+  onClick: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ movie }) => {
+const Card: React.FC<CardProps> = ({ movie, onClick }) => {
   return (
     <div>
       <p className="mb-6 ellipsis-effect font-semibold">{movie.title}</p>
@@ -15,7 +16,8 @@ const Card: React.FC<CardProps> = ({ movie }) => {
           backgroundImage: `url(${movie.poster})`,
           backgroundPosition: "center"
         }}
-      ></div>
+        onClick={onClick}
+      />
       <div className="mt-1 flex flex-row-reverse flex-wrap ">
         {movie.genre.map((el: string) => (
           <span
