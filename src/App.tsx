@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import Movies from "./pages/Movies";
 import MovieDetail from "./pages/MovieDetail";
+import MovieCreate from "./pages/MovieCreate";
 import AsideMenu from "./components/AsideMenu";
 import Loading from "./components/Loading";
 
@@ -14,6 +15,7 @@ const App: React.FC = () => (
     <Route path="/">Home</Route>
     <Route path="/movies" component={() => <Movies />} />
     <Route path="/movies/:id" component={() => <MovieDetail />} />
+    <Route path="/movies/new" component={() => <MovieCreate />} />
     <Route path="/actors">actors</Route>
     <Route path="/companies">Movies</Route>
   </Provider>

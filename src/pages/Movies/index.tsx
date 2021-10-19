@@ -44,6 +44,7 @@ const Movies: React.FC = () => {
         icon={faPlusCircle}
         className="cursor-pointer fixed bottom-6 right-6 text-secondary transition-all hover:text-white hover:scale-110"
         size="6x"
+        onClick={() => setLocation("/movies/new")}
       />
     </>
   );
