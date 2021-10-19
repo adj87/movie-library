@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import moviesReducer from "./pages/Movies/redux";
 import movieDetailReducer from "./pages/MovieDetail/redux";
+import movieCreateReducer from "./pages/MovieCreate/redux";
 
 export const store = configureStore({
   reducer: {
     movies: moviesReducer,
-    movieDetail: movieDetailReducer
+    movieDetail: movieDetailReducer,
+    movieCreate: movieCreateReducer
   }
 });
 

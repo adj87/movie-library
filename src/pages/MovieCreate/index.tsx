@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Select from "react-select";
 
 import Body from "../../components/Body";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
-import { Movie } from "../../interfaces/movie";
+import { useAppDispatch } from "../../store";
+import { fetchAll } from "./redux/operations";
 
 const initialFormState = {
   id: undefined,
@@ -20,8 +21,12 @@ const initialFormState = {
 
 const MovieCreate: React.FC<any> = () => {
   const [formState, setFormState] = useState(initialFormState);
+  const dispatch = useAppDispatch();
   const updateForm = useCallback((name, value) => {
     setFormState((oldState) => ({ ...oldState, [name]: value }));
+  }, []);
+  useEffect(() => {
+    fetchAll(dispatch);
   }, []);
 
   return (
