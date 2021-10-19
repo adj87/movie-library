@@ -2,8 +2,19 @@
   "screens": {
     "movies": "Movies",
     "actors": "Actors",
-    "companies": "Companies"
+    "companies": "Companies",
+    "movieCreate": "Create Movie"
   },
   "all-rights-reserved": "All rights reserved ",
-  "by": "By"
+  "by": "By",
+  "movie": {
+    "title": "Title",
+    "poster": "Poster",
+    "genre": "Genre",
+    "actors": "Actors",
+    "company": "Company",
+    "year": "Year",
+    "duration": "Duration",
+    "imdbRating": "Rating"
+  }
 }

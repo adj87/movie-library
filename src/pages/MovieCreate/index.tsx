@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Select, { MultiValue, SingleValue } from "react-select";
 
 import Body from "../../components/Body";
@@ -24,6 +25,7 @@ const initialFormState = {
 const MovieCreate: React.FC<any> = () => {
   const [formState, setFormState] = useState(initialFormState);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
   const [actors, companies] = useAppSelector(({ movieCreate }: RootState) => [
     movieCreate.actors,
     movieCreate.companies
@@ -36,7 +38,7 @@ const MovieCreate: React.FC<any> = () => {
   }, []);
   return (
     <>
-      <Header text={"Crear película"} />
+      <Header text={t("screens.movieCreate")} />
       <Body>
         <form
           onSubmit={(e) => {
@@ -49,17 +51,17 @@ const MovieCreate: React.FC<any> = () => {
             <Input
               value={formState.title}
               name={"title"}
-              label={"Título"}
+              label={t("movie.title")}
               onChange={updateForm}
             />
             <Input
               value={formState.poster}
               name={"poster"}
-              label={"Poster"}
+              label={t("movie.poster")}
               onChange={updateForm}
             />
             <div>
-              <label className="text-grey-200 mb-4">{"Genre"}</label>
+              <label className="text-grey-200 mb-4">{t("movie.genre")}</label>
               <Select
                 classNamePrefix="react-select"
                 options={[
@@ -76,7 +78,7 @@ const MovieCreate: React.FC<any> = () => {
             </div>
 
             <div>
-              <label className="text-grey-200 mb-4">{"Actors"}</label>
+              <label className="text-grey-200 mb-4">{t("movie.actors")}</label>
               <Select
                 classNamePrefix="react-select"
                 options={actors}
@@ -111,21 +113,21 @@ const MovieCreate: React.FC<any> = () => {
               value={formState.year}
               name={"year"}
               type="number"
-              label={"Year"}
+              label={t("movie.year")}
               onChange={updateForm}
             />
             <Input
               value={formState.duration}
               name={"duration"}
               type="number"
-              label={"Duration"}
+              label={t("movie.duration")}
               onChange={updateForm}
             />
             <Input
               value={formState.imdbRating}
               name={"imdbRating"}
               type="number"
-              label={"imdbRating"}
+              label={t("movie.imdbRating")}
               onChange={updateForm}
             />
           </div>
