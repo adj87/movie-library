@@ -1,10 +1,12 @@
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 
 const AsideMenu: React.FC = () => {
   const location = useLocation();
+  const { t } = useTranslation();
   return (
     <>
       <div className="w-full h-0 fixed top-0 left-0 bg-secondary z-20 bg-opacity-90 layer transition-all duration-500" />
@@ -28,24 +30,21 @@ const AsideMenu: React.FC = () => {
               <Link
                 key={`link ${i}`}
                 to={el.href}
+                className={`py-2 text-grey-600 text-xl ${linkActive} hover:text-white transition-all duration-500`}
                 onClick={() =>
                   document.body.classList.remove("aside-menu-open")
                 }
               >
-                <a
-                  className={`py-2 text-grey-600 text-xl ${linkActive} hover:text-white transition-all duration-500`}
-                >
-                  {el.title}
-                </a>
+                {t(`screens.${el.title}`)}
               </Link>
             );
           })}
         </div>
         {/* Footer */}
         <div className="bottom-0 absolute pb-8 font-extralight">
-          <p>© {new Date().getFullYear()} All rights reserved</p>
+          <p>{`© ${new Date().getFullYear()} ${t("all-rights-reserved")}`} </p>
           <p>
-            by <span className="text-grey-400">mr_jaurewi</span>
+            {t("by")} <span className="text-grey-400">mr_jaurewi</span>
           </p>
         </div>
       </div>
@@ -54,9 +53,9 @@ const AsideMenu: React.FC = () => {
 };
 
 const links = [
-  { href: "/movies", title: "Movies" },
-  { href: "/actors", title: "Actors" },
-  { href: "/companies", title: "Companies" }
+  { href: "/movies", title: "movies" },
+  { href: "/actors", title: "actors" },
+  { href: "/companies", title: "companies" }
 ];
 
 export default AsideMenu;

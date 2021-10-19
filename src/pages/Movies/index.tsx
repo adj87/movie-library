@@ -9,9 +9,11 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router-dom";
 import { API_HOST } from "../../constants";
+import { useTranslation } from "react-i18next";
 
 const Movies: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
   const movies = useAppSelector((state: RootState) => state.movies.list);
   const { push } = useHistory();
   useEffect(() => {
@@ -25,7 +27,7 @@ const Movies: React.FC = () => {
   }, []);
   return (
     <>
-      <Header text="Movies" />
+      <Header text={t("screens.movies")} />
       <Body>
         <div
           className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12"
