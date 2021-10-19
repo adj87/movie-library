@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MovieWithCompanyAndActorsAsStrings } from "../../interfaces/movie";
+import { MovieWithCompanyAndActorsAsStrings } from "../../../interfaces/movie";
 
 const initialState = {
   loading: false,

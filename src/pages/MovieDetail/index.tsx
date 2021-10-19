@@ -1,20 +1,12 @@
 import React, { useEffect } from "react";
 import { useRoute } from "wouter";
-import Body from "../../components/Body";
-import Header from "../../components/Header";
-import { setLoading, setMovie } from "./redux";
-import { RootState, useAppDispatch, useAppSelector } from "../../store";
-import {
-  Movie,
-  MovieWithCompanyAndActorsAsStrings
-} from "../../interfaces/movie";
-import { Actor } from "../../interfaces/actor";
-import { Company } from "../../interfaces/company";
-import { API_HOST } from "../../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-type ApiResponse = [Movie, Company[], Actor[]];
+import Body from "../../components/Body";
+import Header from "../../components/Header";
+import { RootState, useAppDispatch, useAppSelector } from "../../store";
+import { fetchAll } from "./redux/operation";
 
 const MovieDetail: React.FC<any> = () => {
   const dispatch = useAppDispatch();
@@ -22,29 +14,7 @@ const MovieDetail: React.FC<any> = () => {
   const movie = useAppSelector((state: RootState) => state.movieDetail.movie);
   useEffect(() => {
     const { id } = params || {};
-    dispatch(setLoading(true));
-    Promise.all([
-      fetch(`${API_HOST}/movies/${id}`),
-      fetch(`${API_HOST}/companies?movies_like=${id}`),
-      fetch(`${API_HOST}/actors?movies_like=${id}`)
-    ])
-      .then((responses) =>
-        Promise.all(responses.map((res: Response) => res.json()))
-      )
-      .then((res) => {
-        const [movie, companies, actors] = res as ApiResponse;
-        const company = companies[0].name;
-        const actorsName = actors.map(
-          (a: Actor) => `${a.first_name} ${a.last_name}`
-        );
-        const movieWithCompanyAndActors: MovieWithCompanyAndActorsAsStrings = {
-          ...movie,
-          actors: actorsName,
-          company
-        };
-        dispatch(setMovie(movieWithCompanyAndActors));
-        dispatch(setLoading(false));
-      });
+    fetchAll(dispatch, id);
   }, []);
   return (
     <>
