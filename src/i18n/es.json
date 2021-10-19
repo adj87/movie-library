@@ -1,5 +1,6 @@
 {
   "screens": {
+    "home": "Home",
     "movies": "Películas",
     "actors": "Actores",
     "companies": "Estudios",

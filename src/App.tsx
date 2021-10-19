@@ -7,6 +7,7 @@ import MovieDetail from "./pages/MovieDetail";
 import MovieCreate from "./pages/MovieCreate";
 import AsideMenu from "./components/AsideMenu";
 import Loading from "./components/Loading";
+import Default from "./pages/Default";
 
 import "./i18n";
 
@@ -15,9 +16,11 @@ const App: React.FC = () => (
     <Loading />
     <BrowserRouter>
       <AsideMenu />
-      <Route path="/" exact>
-        Home
-      </Route>
+      <Route
+        path="/"
+        component={() => <Default keyTranslation={"screens.home"} />}
+        exact
+      />
       <Route path="/movies" component={() => <Movies />} exact />
       <Route
         path="/movies/:id"
@@ -28,8 +31,16 @@ const App: React.FC = () => (
         exact
       />
       <Route path="/movies/new" component={() => <MovieCreate />} exact />
-      <Route path="/actors">actors</Route>
-      <Route path="/companies">Movies</Route>
+      <Route
+        path="/actors"
+        component={() => <Default keyTranslation={"screens.actors"} />}
+        exact
+      />
+      <Route
+        path="/companies"
+        component={() => <Default keyTranslation={"screens.companies"} />}
+        exact
+      />
     </BrowserRouter>
   </Provider>
 );

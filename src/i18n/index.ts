@@ -13,7 +13,7 @@ const resources = {
 };
 
 export default i18n.use(initReactI18next).init({
-  fallbackLng: "es",
+  fallbackLng: "en",
   resources,
   keySeparator: ".", // we do not use keys in form messages.welcome
   interpolation: {
