@@ -6,7 +6,7 @@ import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Body from "../../components/Body";
 import Header from "../../components/Header";
 import { RootState, useAppDispatch, useAppSelector } from "../../store";
-import { fetchAll } from "./redux/operation";
+import { fetchAll } from "./redux/operations";
 
 const MovieDetail: React.FC<any> = () => {
   const dispatch = useAppDispatch();
