@@ -4,7 +4,7 @@ To test the app, please follow the next steps:
 
 ### Clone this repo
 
-`git clone https://github.com/adj87/kwhapp-frontend.git`
+`git clone https://github.com/adj87/movie-library.git`
 
 ### Check node version
 
