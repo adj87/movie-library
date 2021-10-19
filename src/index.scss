@@ -57,7 +57,8 @@ body {
 }
 
 .react-select__option--is-selected {
-  @apply bg-secondary;
+  @apply bg-primary #{!important};
+  @apply text-white #{!important};
 }
 
 .react-select__value-container {
@@ -65,8 +66,8 @@ body {
 }
 
 .react-select__single-value {
-  @apply text-secondary;
-  @apply text-xl;
+  @apply text-secondary #{!important};
+  @apply text-xl #{!important};
 }
 
 .react-select__dropdown-indicator {
