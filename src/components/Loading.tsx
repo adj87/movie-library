@@ -5,7 +5,10 @@ import { RootState, useAppSelector } from "../store";
 
 const Loading: React.FC = () => {
   const loading = useAppSelector(
-    (state: RootState) => state.movieDetail.loading || state.movies.loading
+    (state: RootState) =>
+      state.movieDetail.loading ||
+      state.movies.loading ||
+      state.movieCreate.loading
   );
   return (
     <div

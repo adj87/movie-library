@@ -10,6 +10,7 @@ module.exports = {
       }
     },
     colors: {
+      transparent: "transparent",
       grey: colors.coolGray,
       primary: {
         DEFAULT: "#000023",

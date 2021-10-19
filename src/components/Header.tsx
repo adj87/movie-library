@@ -1,16 +1,17 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
-import { useLocation } from "wouter";
+import { useHistory, useLocation } from "react-router-dom";
 
 interface HeaderProps {
   text?: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ text }) => {
-  const [location, setLocation] = useLocation();
+  const { pathname } = useLocation();
+  const history = useHistory();
   const isBackButton =
-    /movies\/\d+/.test(location) || location.includes("movies/new");
+    /movies\/\d+/.test(pathname) || pathname.includes("movies/new");
   return (
     <div className="flex justify-items-center items-center mb-8 sticky top-0 bg-primary z-10">
       <FontAwesomeIcon
@@ -19,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ text }) => {
         size="2x"
         onClick={
           isBackButton
-            ? () => setLocation("/movies")
+            ? history.goBack
             : () => document.body.classList.add("aside-menu-open")
         }
       />
