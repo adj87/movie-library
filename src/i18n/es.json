@@ -1,0 +1,21 @@
+{
+  "screens": {
+    "movies": "Películas",
+    "actors": "Actores",
+    "companies": "Estudios",
+    "movieCreate": "Create Movie"
+  },
+  "all-rights-reserved": "Todos los derechos reservados ",
+  "by": "Por",
+  "watch-in": "Ver en",
+  "movie": {
+    "title": "Título",
+    "poster": "Poster",
+    "genre": "Género",
+    "actors": "Actores",
+    "company": "Estudio",
+    "year": "Año",
+    "duration": "Duracion",
+    "imdbRating": "Puntuación"
+  }
+}
