@@ -61,18 +61,21 @@ const MovieCreate: React.FC<any> = () => {
           <Input
             value={formState.year}
             name={"year"}
+            type="number"
             label={"Year"}
             onChange={updateForm}
           />
           <Input
             value={formState.duration}
             name={"duration"}
+            type="number"
             label={"Duration"}
             onChange={updateForm}
           />
           <Input
             value={formState.imdbRating}
             name={"imdbRating"}
+            type="number"
             label={"imdbRating"}
             onChange={updateForm}
           />
