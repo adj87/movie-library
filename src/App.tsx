@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import Movies from "./pages/Movies";
@@ -14,8 +14,9 @@ import "./i18n";
 const App: React.FC = () => (
   <Provider store={store}>
     <Loading />
-    <BrowserRouter>
+    <BrowserRouter basename="/movie-library">
       <AsideMenu />
+      <Redirect to="/movies" from="/" exact />
       <Route
         path="/"
         component={() => <Default keyTranslation={"screens.home"} />}
